@@ -12,13 +12,17 @@ namespace BakingApp.L2.Rest.Controllers
 {
     public class ComptesController : ApiController
     {
-        private ICompteBusiness business = new ComptesBusinessImpl();
+        private ICompteBusiness business; // = new ComptesBusinessImpl();
+
+        public ComptesController(ICompteBusiness business)
+        {
+            this.business = business;
+        }
 
         // GET api/comptes
         public IEnumerable<Compte> Get()
         {
             return business.TousLesComptes();
         }
-
     }
 }

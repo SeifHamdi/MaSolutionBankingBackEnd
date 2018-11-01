@@ -12,7 +12,11 @@ namespace BakingApp.L1.Business.Implementations
 {
     public class ComptesBusinessImpl : ICompteBusiness
     {
-        private IComptesRepository repository = new ComptesRepositoryImpl_EF();
+        private IComptesRepository repository; // = new ComptesRepositoryImpl_EF();
+        public ComptesBusinessImpl(IComptesRepository repository) // Constructor Injection
+        {
+            this.repository = repository;
+        }
 
         public decimal? ConsulterSolde(string numero)
         {
